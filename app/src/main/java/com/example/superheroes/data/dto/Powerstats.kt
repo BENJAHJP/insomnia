@@ -1,4 +1,4 @@
-package com.example.superheroes.data
+package com.example.superheroes.data.dto
 
 data class Powerstats(
     val combat: String,

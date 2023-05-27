@@ -1,4 +1,4 @@
-package com.example.superheroes.data
+package com.example.superheroes.data.dto
 
 data class Superhero(
     val appearance: Appearance,
