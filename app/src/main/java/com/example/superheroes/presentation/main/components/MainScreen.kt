@@ -2,8 +2,10 @@ package com.example.superheroes.presentation.main.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
@@ -15,7 +17,7 @@ fun MainScreen(superheroModel: SuperheroModel) {
     val pagerState = rememberPagerState(
         initialPage = 0,
         initialPageOffsetFraction = 0f,
-        pageCount = { 98 }
+        pageCount = { 751 }
     )
     Box {
         VerticalPager(
@@ -26,6 +28,9 @@ fun MainScreen(superheroModel: SuperheroModel) {
                 contentScale = ContentScale.Crop,
                 contentDescription = superheroModel.name
             )
+        }
+        Column {
+            Text(text = superheroModel.name)
         }
     }
 }
