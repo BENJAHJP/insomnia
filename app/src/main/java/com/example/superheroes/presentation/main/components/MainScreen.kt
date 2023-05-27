@@ -51,7 +51,7 @@ fun MainScreen(
                     getNextSuperHero(pagerState.currentPage)
                 }
                     .align(Alignment.Center)
-                    .size(30.dp)
+                    .size(50.dp)
                 ,
                 imageVector = Icons.Rounded.Refresh,
                 contentDescription = "refresh"
