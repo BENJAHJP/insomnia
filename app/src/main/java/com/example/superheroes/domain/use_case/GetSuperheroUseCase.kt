@@ -14,7 +14,7 @@ import javax.inject.Inject
 class GetSuperheroUseCase @Inject constructor(
     private val superheroRepository: SuperheroRepository
 ) {
-    operator fun invoke(id: Int): Flow<Resource<SuperheroModel>> = flow {
+    operator fun invoke(id: String): Flow<Resource<SuperheroModel>> = flow {
         try {
             emit(Resource.Loading())
             val superhero = superheroRepository.getSuperhero(id).toSuperHeroModel()

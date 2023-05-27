@@ -18,10 +18,10 @@ class MainScreenViewModel @Inject constructor(
     val state = _state
 
     init {
-        getSuperhero(2)
+        getSuperhero("2")
     }
 
-    fun getSuperhero(id: Int){
+    fun getSuperhero(id: String){
         getSuperheroUseCase(id).onEach { result ->
             when(result){
                 is Resource.Error -> {
