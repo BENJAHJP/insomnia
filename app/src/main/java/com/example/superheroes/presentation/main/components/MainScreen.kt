@@ -27,7 +27,6 @@ import kotlinx.coroutines.launch
 @Composable
 fun MainScreen(
     getNextSuperHero: (id: Int) -> Unit,
-    superheroModel: SuperheroModel,
     state: MutableState<MainScreenState>
 ) {
     val scope = rememberCoroutineScope()
@@ -53,13 +52,13 @@ fun MainScreen(
                 state = pagerState
             ) {
                 AsyncImage(
-                    model = superheroModel.image.url,
+                    model = state.value.superhero?.image?.url,
                     contentScale = ContentScale.Crop,
-                    contentDescription = superheroModel.name
+                    contentDescription = state.value.superhero?.name
                 )
             }
             Column {
-                Text(text = superheroModel.name)
+                Text(text = state.value.superhero?.name ?:"/")
             }
             IconButton(
                 onClick = {

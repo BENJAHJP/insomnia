@@ -16,13 +16,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             SuperheroesTheme {
                 val viewModel: MainScreenViewModel = hiltViewModel()
-                viewModel.state.value.superhero?.let {
-                    MainScreen(
-                        viewModel::getSuperhero,
-                        superheroModel = it,
-                        viewModel.state
-                    )
-                }
+                MainScreen(
+                    viewModel::getSuperhero,
+                    viewModel.state
+                )
             }
         }
     }
