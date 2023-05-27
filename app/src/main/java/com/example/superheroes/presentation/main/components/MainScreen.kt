@@ -67,7 +67,7 @@ fun MainScreen(
                 )
             }
             Column {
-                Text(text = state.value.superhero?.name ?:"/")
+                Text(text = state.value.superhero?.name ?:"unknown")
             }
             IconButton(
                 onClick = {
