@@ -29,7 +29,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainScreen(
-    getNextSuperHero: (id: Int) -> Unit,
+    getNextSuperHero: (id: String) -> Unit,
     state: MutableState<MainScreenState>
 ) {
     val scope = rememberCoroutineScope()
@@ -47,9 +47,10 @@ fun MainScreen(
             )
         } else if (state.value.message.isNotBlank()){
             Icon(
-                modifier = Modifier.clickable {
-                    getNextSuperHero(pagerState.currentPage)
-                }
+                modifier = Modifier
+                    .clickable {
+                        getNextSuperHero("$pagerState.currentPage")
+                    }
                     .align(Alignment.Center)
                     .size(50.dp)
                 ,
@@ -76,7 +77,7 @@ fun MainScreen(
                             pagerState.currentPage + 1
                         )
                     }
-                    getNextSuperHero(pagerState.currentPage + 1)
+                    getNextSuperHero("${pagerState.currentPage + 1}")
                 }
             ) {
                 Icon(

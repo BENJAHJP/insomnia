@@ -8,6 +8,6 @@ interface Api {
 
     @GET("{id}")
     suspend fun getSuperhero(
-        @Path("id") id: Int
+        @Path("id") id: String
     ): Superhero
 }

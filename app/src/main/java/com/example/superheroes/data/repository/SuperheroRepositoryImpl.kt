@@ -8,7 +8,7 @@ import javax.inject.Inject
 class SuperheroRepositoryImpl @Inject constructor(
     private val api: Api
 ): SuperheroRepository {
-    override suspend fun getSuperhero(id: Int): Superhero {
+    override suspend fun getSuperhero(id: String): Superhero {
         return api.getSuperhero(id)
     }
 }
