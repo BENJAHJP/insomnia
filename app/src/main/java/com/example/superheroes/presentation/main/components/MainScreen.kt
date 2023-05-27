@@ -7,6 +7,7 @@ import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.KeyboardArrowDown
+import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -41,6 +42,11 @@ fun MainScreen(
                 modifier = Modifier.align(
                     Alignment.Center
                 )
+            )
+        } else if (state.value.message.isNotBlank()){
+            Icon(
+                imageVector = Icons.Rounded.Refresh,
+                contentDescription = "refresh"
             )
         } else {
             VerticalPager(
