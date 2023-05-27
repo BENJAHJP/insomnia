@@ -1,8 +1,10 @@
 package com.example.superheroes.presentation.main.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
@@ -18,6 +20,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.superheroes.domain.model.SuperheroModel
 import com.example.superheroes.presentation.main.MainScreenState
@@ -44,6 +47,12 @@ fun MainScreen(
             )
         } else if (state.value.message.isNotBlank()){
             Icon(
+                modifier = Modifier.clickable {
+                    getNextSuperHero(pagerState.currentPage)
+                }
+                    .align(Alignment.Center)
+                    .size(30.dp)
+                ,
                 imageVector = Icons.Rounded.Refresh,
                 contentDescription = "refresh"
             )
