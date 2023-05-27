@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
@@ -26,18 +27,11 @@ import com.example.superheroes.domain.model.SuperheroModel
 import com.example.superheroes.presentation.main.MainScreenState
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainScreen(
     getNextSuperHero: (id: String) -> Unit,
     state: MutableState<MainScreenState>
 ) {
-    val scope = rememberCoroutineScope()
-    val pagerState = rememberPagerState(
-        initialPage = 0,
-        initialPageOffsetFraction = 0f,
-        pageCount = { 751 }
-    )
     Box {
         if (state.value.isLoading){
             CircularProgressIndicator(
@@ -58,32 +52,15 @@ fun MainScreen(
                 contentDescription = "refresh"
             )
         } else {
-            VerticalPager(
-                state = pagerState
-            ) {
-                AsyncImage(
-                    model = state.value.superhero?.image?.url,
-                    contentScale = ContentScale.Crop,
-                    contentDescription = state.value.superhero?.name
-                )
-            }
-            Column {
-                Text(text = state.value.superhero?.name ?:"unknown")
-            }
-            IconButton(
-                onClick = {
-                    scope.launch {
-                        pagerState.animateScrollToPage(
-                            pagerState.currentPage + 1
+            LazyColumn(){
+                item {
+                    Column {
+                        AsyncImage(
+                            model = state.value.superhero?.image,
+                            contentDescription = state.value.superhero?.name
                         )
                     }
-                    getNextSuperHero("${pagerState.currentPage + 1}")
                 }
-            ) {
-                Icon(
-                    imageVector = Icons.Rounded.KeyboardArrowDown,
-                    contentDescription = "arrow down"
-                )
             }
         }
     }
