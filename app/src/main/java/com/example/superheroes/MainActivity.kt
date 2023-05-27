@@ -19,7 +19,8 @@ class MainActivity : ComponentActivity() {
                 viewModel.state.value.superhero?.let {
                     MainScreen(
                         viewModel::getSuperhero,
-                        superheroModel = it
+                        superheroModel = it,
+                        viewModel.state
                     )
                 }
             }
