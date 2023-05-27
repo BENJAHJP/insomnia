@@ -4,7 +4,7 @@ data class Superhero(
     val appearance: Appearance,
     val biography: Biography,
     val connections: Connections,
-    val id: String,
+    val id: Int,
     val image: Image,
     val name: String,
     val powerstats: Powerstats,

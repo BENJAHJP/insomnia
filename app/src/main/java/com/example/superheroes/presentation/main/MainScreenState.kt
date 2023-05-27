@@ -1,4 +1,7 @@
 package com.example.superheroes.presentation.main
 
-class MainScreenState {
-}
+data class MainScreenState(
+    val isLoading: Boolean = false,
+    val message: String = "",
+    val superhero:
+)
