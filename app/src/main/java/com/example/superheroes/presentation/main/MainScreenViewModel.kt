@@ -18,7 +18,7 @@ class MainScreenViewModel @Inject constructor(
     val state = _state
 
     init {
-        getSuperhero("1")
+        getSuperhero("60")
     }
 
     fun getSuperhero(id: String){

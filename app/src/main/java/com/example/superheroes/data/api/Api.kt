@@ -6,7 +6,7 @@ import retrofit2.http.Path
 
 interface Api {
 
-    @GET("/{id}")
+    @GET("{id}")
     suspend fun getSuperhero(
         @Path("id") id: String
     ): Superhero
