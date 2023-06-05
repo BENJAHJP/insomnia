@@ -74,9 +74,8 @@ fun MainScreen(
                             .background(color = Color.Black)
                             .padding(20.dp)
                     ) {
-                        Row {
-                            Text(text = state.value.superhero?.name ?: "")
-                        }
+                        SingleRow(title = "Name", value = state.value.superhero?.name)
+                        SingleRow(title = "Name", value = state.value.superhero?.name)
                     }
                 }
             }
