@@ -77,7 +77,7 @@ fun MainScreen(
                     ElevatedCard(
                         modifier = Modifier
                             .padding(20.dp)
-                            .height(200.dp)
+                            .height(300.dp)
                     ) {
                         SingleRow(title = "Name", value = state.value.superhero?.name)
                         SingleRow(title = "Gender", value = state.value.superhero?.appearance?.gender)
