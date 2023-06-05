@@ -78,6 +78,9 @@ fun MainScreen(
                         SingleRow(title = "Gender", value = state.value.superhero?.appearance?.gender)
                         SingleRow(title = "Eye color", value = state.value.superhero?.appearance?.`eye-color`)
                         SingleRow(title = "Hair Color", value = state.value.superhero?.appearance?.`hair-color`)
+                        SingleRow(title = "Race", value = state.value.superhero?.appearance?.race)
+                        SingleRow(title = "Height", value = state.value.superhero?.appearance?.height?.firstOrNull())
+                        SingleRow(title = "Weight", value = state.value.superhero?.appearance?.weight?.firstOrNull())
                     }
                 }
             }
