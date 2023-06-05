@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,6 +17,7 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -63,16 +65,19 @@ fun MainScreen(
             )
         } else {
             VerticalPager(state = pagerState) {
-                Box(modifier = Modifier.fillMaxSize()){
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.BottomCenter
+                ){
                     AsyncImage(
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize(),
                         model = state.value.superhero?.image?.url,
                         contentDescription = "")
-                    Column(
+                    ElevatedCard(
                         modifier = Modifier
-                            .background(color = Color.Black)
                             .padding(20.dp)
+                            .height(200.dp)
                     ) {
                         SingleRow(title = "Name", value = state.value.superhero?.name)
                         SingleRow(title = "Gender", value = state.value.superhero?.appearance?.gender)
