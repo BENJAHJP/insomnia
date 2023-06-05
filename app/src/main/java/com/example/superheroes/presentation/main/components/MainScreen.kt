@@ -14,6 +14,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
@@ -58,11 +59,16 @@ fun MainScreen(
             )
         } else {
             VerticalPager(state = pagerState) {
-                AsyncImage(
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize(),
-                    model = state.value.superhero?.image?.url,
-                    contentDescription = "")
+                Box(modifier = Modifier.fillMaxSize()){
+                    AsyncImage(
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize(),
+                        model = state.value.superhero?.image?.url,
+                        contentDescription = "")
+                    Column {
+                        Text(text = state.value.superhero?.name ?: "")
+                    }
+                }
             }
         }
     }
