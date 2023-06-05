@@ -75,7 +75,9 @@ fun MainScreen(
                             .padding(20.dp)
                     ) {
                         SingleRow(title = "Name", value = state.value.superhero?.name)
-                        SingleRow(title = "Name", value = state.value.superhero?.name)
+                        SingleRow(title = "Gender", value = state.value.superhero?.appearance?.gender)
+                        SingleRow(title = "Eye color", value = state.value.superhero?.appearance?.`eye-color`)
+                        SingleRow(title = "Hair Color", value = state.value.superhero?.appearance?.`hair-color`)
                     }
                 }
             }
